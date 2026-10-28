@@ -3,7 +3,10 @@ import { round, score } from './score.js';
 /**
  * Path to directory containing `_list.json` and all levels
  */
-const dir = '/data';
+// Automatically detects GitHub Pages subfolder vs local development
+const pathSegments = window.location.pathname.split('/').filter(Boolean);
+const repoName = window.location.hostname.includes('github.io') && pathSegments.length > 0 ? `/${pathSegments[0]}` : '';
+const dir = `${repoName}/data`;
 
 export async function fetchList() {
     const listResult = await fetch(`${dir}/_list.json`);
