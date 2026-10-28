@@ -4,7 +4,7 @@ import { round, score } from './score.js';
  * Path to directory containing `_list.json` and all levels
  */
 // Automatically detects GitHub Pages subfolder vs local development
-const dir = '../data';
+const dir = './data';
 
 export async function fetchList() {
     const listResult = await fetch(`${dir}/main/list.json`);
